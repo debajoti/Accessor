@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
+import { UserTable } from "./UserTable";
 
 const UsersList = ({ currentUserEmail, currentUserRole }: { currentUserEmail: string; currentUserRole: string }) => {
   const [users, setUsers] = useState([]);
@@ -41,14 +42,9 @@ const UsersList = ({ currentUserEmail, currentUserRole }: { currentUserEmail: st
 
   return (
     <div>
-      <h2>Users List (excluding you)</h2>
-      <ul>
-        {users.map((user: { id: number; email: string; name: string | null; role: string; status: string; permissions?: string[] }) => (
-          <li key={user.id}>
-            <strong>{user.name || "Unknown Name"}</strong> ({user.email}) - Role: {user.role}, Status: {user.status} {user.permissions ? `Permissions: ${user.permissions.join(", ")}` : ""}
-          </li>
-        ))}
-      </ul>
+      <div>
+        <UserTable users={users} roles={currentUserRole}/>
+      </div>
     </div>
   );
 };
