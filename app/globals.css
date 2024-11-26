@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'JosefinSans';
+  src: url('./fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap; 
+}
+@font-face {
+  font-family: 'JosefinSans-Italic';
+  src: url('./fonts/JosefinSans-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap; 
+}
+
+:root {
+  --font-family-JosefinSans: 'JosefinSans', sans-serif;
+  --font-family-JosefinSans-Italic: 'JosefinSans-Italic', sans-serif;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }

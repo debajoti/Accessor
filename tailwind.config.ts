@@ -55,7 +55,11 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		fontFamily: {
+			josefin: ['var(--font-family-JosefinSans)', 'sans-serif'],
+			josefinItalic: ['var(--font-family-JosefinSans-Italic)', 'sans-serif']
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

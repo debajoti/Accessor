@@ -1,10 +1,14 @@
 import React from "react";
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
+import SignoutButton from "./SignoutButton";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await getServerSession(authOptions);
   return (
-    <div className="bg-transparent fixed w-full z-10 top-0 p-5 px-10">
+    <div className="text-josefin bg-transparent fixed w-full z-10 top-0 p-5 px-10">
       <div className="container flex items-center justify-between mx-auto">
         <div>    
         <span className="relative font-bold text-3xl text-white">
@@ -15,17 +19,22 @@ const Navbar = () => {
           <span className="z-2 relative">VRV</span>
         </span>
         </div>
-        <div className="flex gap-2">
+        {session?.user ? (
+          <SignoutButton/>
+        ) : (
+          <div className="flex gap-2">
           <Link
-            className={buttonVariants({ variant: "white" })}
+            className={buttonVariants({ variant: "outline" })}
             href="/sign-up"
           >
             Sign up
           </Link>
-          <Link className={buttonVariants({ variant: "white" })} href="/log-in">
+          <Link className={buttonVariants({ variant: "default" })} href="/log-in">
             Log in
           </Link>
         </div>
+        )}
+        
       </div>
     </div>
   );
