@@ -1,5 +1,4 @@
 import LogInForm from '@/components/LogInForm'
-import UserManagement from '@/components/UserManagement'
 import React from 'react'
 
 const page = () => {

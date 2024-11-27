@@ -1,5 +1,4 @@
 "use client";
-// Imports
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -17,7 +16,6 @@ import { Button } from "./ui/button";
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import { signIn } from "next-auth/react";
 
-// Zod Schema
 const FormSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
   password: z
@@ -26,7 +24,6 @@ const FormSchema = z.object({
     .min(8, "Password must have more than 8 characters"),
 });
 
-// Typedefs
 type FormData = z.infer<typeof FormSchema>;
 
 const LogInForm = () => {
@@ -77,7 +74,7 @@ const LogInForm = () => {
         <Tabs
           defaultValue="user"
           className="xl:w-[400px] my-5"
-          onValueChange={setActiveTab} // Track active tab
+          onValueChange={setActiveTab}
         >
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger

@@ -1,8 +1,9 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import { UserTable } from "./UserTable";
+import {Bars} from 'react-loader-spinner'
 
-const UsersList = ({ currentUserEmail, currentUserRole }: { currentUserEmail: string; currentUserRole: string }) => {
+const UsersList = ({ currentUserEmail, currentUserRole, currentUserPermisions}: { currentUserEmail: string; currentUserRole: string , currentUserPermisions: string[]}) => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -37,13 +38,22 @@ const UsersList = ({ currentUserEmail, currentUserRole }: { currentUserEmail: st
     fetchUsers();
   }, [currentUserEmail, currentUserRole]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="flex justify-center"><Bars
+  height="50"
+  width="50"
+  color="#60a5fa"
+  ariaLabel="bars-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  /></div>;
+
   if (error) return <div>Error: {error}</div>;
 
   return (
     <div>
       <div>
-        <UserTable users={users} roles={currentUserRole}/>
+        <UserTable users={users} roles={currentUserRole} permissions={currentUserPermisions}/>
       </div>
     </div>
   );
