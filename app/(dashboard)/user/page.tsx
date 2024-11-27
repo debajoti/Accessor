@@ -15,7 +15,7 @@ const page = async () => {
 
   return (
     <div className='h-full w-full p-16 sm:p-20 mt-10'>
-        <div >
+        <div className=''>
             <h1 className='font-bold text-2xl mb-2'>Welcome,</h1>
             <span className='text-transparent text-4xl lg:text-6xl bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 font-extrabold'>{session?.user?.name}</span>
         </div>
