@@ -88,7 +88,7 @@ const LogInForm = () => {
         </div>
         <Tabs
           defaultValue="user"
-          className="xl:w-[400px] my-5"
+          className=" my-5"
           onValueChange={setActiveTab}
         >
           <TabsList className="grid w-full grid-cols-2">
