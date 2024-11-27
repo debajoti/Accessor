@@ -3,6 +3,7 @@
 Accessor is a Role-Based Access Control (RBAC) system built with modern technologies, providing fine-grained control over user roles, permissions, and management actions. This project is designed to make managing and enforcing permissions in web applications straightforward and scalable.
 
 ## **Preview**
+![ezgif-5-af619d185d](https://github.com/user-attachments/assets/95a85557-5827-4784-a384-ce1b67eef061)
 
 ## **Getting Started**
 
