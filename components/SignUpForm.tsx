@@ -15,6 +15,7 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import axios from "axios";
+import { useToast } from "@/hooks/use-toast";
 
 //Zod Schema
 const FormSchema = z
@@ -36,6 +37,7 @@ const FormSchema = z
 type FormData = z.infer<typeof FormSchema>;
 
 const SignUpForm = () => {
+  const { toast } = useToast();
   const form = useForm<FormData>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -58,11 +60,21 @@ const SignUpForm = () => {
         alert("Sign Up Successful!");
         console.log(response.data);
         form.reset();
+        window.location.href = "/log-in";
       } else {
-        alert(`Sign Up failed: ${response.data.message || "Unknown error"}`);
+        toast({
+          title: "Error",
+          description: `Sign Up failed: ${response.data.message || "Unknown error"}`,
+          variant: "destructive",
+        })
       }
     } catch (error: any) {
       console.error("Error signing up:", error);
+      toast({
+        title: "Error",
+        description: "An error occurred while signing up.",
+        variant: "destructive",
+      })
       alert(
         error.response?.data?.message || "Something went wrong. Please try again."
       );

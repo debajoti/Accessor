@@ -6,6 +6,7 @@ import { DNA } from "react-loader-spinner";
 
 export default function Home() {
   return (
+    <>
     <div className="text-center mx-auto px-6 sm:px-20 w-full max-w-screen-lg">
       <div className="flex justify-center">
         <DNA
@@ -41,5 +42,6 @@ export default function Home() {
         </Link>
       </div>
     </div>
+    </>
   );
 }

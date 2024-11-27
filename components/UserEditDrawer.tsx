@@ -13,8 +13,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
 
 export function UserEditDrawer({ user, onUpdate, onClose }: { user: any, onUpdate: any, onClose: any }) {
+  const toast = useToast();
   const isNewUser = !user;
   const [formData, setFormData] = React.useState({
     name: user?.name || "",
@@ -65,7 +67,11 @@ export function UserEditDrawer({ user, onUpdate, onClose }: { user: any, onUpdat
       onClose();
       window.location.reload();
     } catch (error) {
-      console.error("Error:", error);
+      toast.toast({
+        title: "Error",
+        description: "An error occurred while updating user.",
+        variant: "destructive",
+      })
     }
   };
 

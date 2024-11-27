@@ -15,6 +15,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import { signIn } from "next-auth/react";
+import { useToast } from "@/hooks/use-toast";
 
 const FormSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
@@ -27,6 +28,7 @@ const FormSchema = z.object({
 type FormData = z.infer<typeof FormSchema>;
 
 const LogInForm = () => {
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("user");
   const form = useForm<FormData>({
     resolver: zodResolver(FormSchema),
@@ -48,14 +50,27 @@ const LogInForm = () => {
       });
       
       if (result?.ok) {
-        alert(`Log In Successful as ${formDataWithRole.role}!`);
         window.location.href = "/user";
+        console.log("Logged in successfully");
+        toast({
+          title: "Success",
+          description: "Logged in successfully",
+          variant: "default",
+        })
       } else {
-        alert("Invalid credentials. Please try again.");
+        toast({
+          title: "Error",
+          description: "Invalid credentials. Please try again.",
+          variant: "destructive",
+        })
       }
     } catch (error) {
       console.error("Login failed:", error);
-      alert("An error occurred while logging in.");
+      toast({
+        title: "Error",
+        description: "An error occurred while logging in.",
+        variant: "destructive",
+      })
     }
   };
 
