@@ -22,7 +22,7 @@ export default function NotLoggedIn() {
           />
         </div>
         <h1 className="text-2xl font-semibold text-gray-50 mb-2">
-          You're not logged in!
+          You&apos;re not logged in!
         </h1>
         <p className="text-gray-200 mb-4">
           Please sign in to access your account and continue using the app.
