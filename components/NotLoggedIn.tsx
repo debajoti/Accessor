@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function NotLoggedIn() {
   const handleLoginRedirect = () => {
@@ -12,8 +13,10 @@ export default function NotLoggedIn() {
     <div className="flex flex-col items-center justify-center h-screen  text-center text-white">
       <div className="max-w-md bg-gray-900 p-6 rounded-lg shadow-md">
         <div className="mb-2">
-          <img
+          <Image
             src="/nlg.png"
+            height={200}
+            width={200}
             alt="Not Logged In"
             className="w-44 h-44 mx-auto"
           />

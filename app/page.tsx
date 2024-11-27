@@ -1,6 +1,6 @@
 "use client";
 import { buttonVariants } from "@/components/ui/button";
-import { ArrowRight, ListEnd } from "lucide-react";
+import { ArrowRight} from "lucide-react";
 import Link from "next/link";
 import { DNA } from "react-loader-spinner";
 

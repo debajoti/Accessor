@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "./ui/table";
 import { User } from "next-auth";
-import { Delete, Trash2, UserPen } from "lucide-react";
+import { Trash2, UserPen } from "lucide-react";
 import { Button } from "./ui/button";
 import { Drawer, DrawerTrigger } from "@/components/ui/drawer";
 import { UserEditDrawer } from "./UserEditDrawer";
@@ -24,7 +24,13 @@ import {
 } from "@/components/ui/dialog";
 import axios from "axios";
 
-export function UserTable({ users, roles, permissions }: any) {
+interface UserTableProps {
+  users: User[];
+  roles: string;
+  permissions: string[];
+}
+
+export function UserTable({ users, roles, permissions }: UserTableProps) {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);

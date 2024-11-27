@@ -1,17 +1,13 @@
 import React from 'react'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { Button, buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import UsersList from '@/components/UserList';
 import AddUser from '@/components/AddUser';
 import NotLoggedIn from '@/components/NotLoggedIn';
 
 const page = async () => {
     const session = await getServerSession(authOptions);
-    
-    const handleLoginRedirect = () => {
-      window.location.href = "/login";
-    };
 
     if (!session) {
         return <NotLoggedIn/>

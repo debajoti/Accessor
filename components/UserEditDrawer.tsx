@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export function UserEditDrawer({ user, onUpdate, onClose }: any) {
+export function UserEditDrawer({ user, onUpdate, onClose }: { user: any, onUpdate: any, onClose: any }) {
   const isNewUser = !user;
   const [formData, setFormData] = React.useState({
     name: user?.name || "",
