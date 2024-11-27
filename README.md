@@ -34,7 +34,11 @@ npm run dev
 ```bash
 http://localhost:3000
 ```
-
+## **Test Admin**
+```bash
+gmail: test@admin.com
+password: 12345678
+```
 ## **Features**
 
 ### 1. **User Role Management**
